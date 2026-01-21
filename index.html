@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GeoControl La Paz | Anti-Trameaje</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="loader" class="loader-wrapper">
+        <div class="spinner"></div>
+        <p>Sincronizando rutas de La Paz...</p>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <span class="material-icons-round">map</span>
+            <h1>GeoControl<span>LP</span></h1>
+        </div>
+        <button class="btn-icon"><span class="material-icons-round">history</span></button>
+    </header>
+
+    <div id="map"></div>
+
+    <main class="bottom-sheet">
+        <div class="drag-handle"></div>
+        
+        <section class="route-selector">
+            <label>Selecciona tu Línea:</label>
+            <select id="linea-select">
+                <option value="">Detectando por cercanía...</option>
+                <option value="l212">Minibús 212 (Chasquipampa - Pérez)</option>
+                <option value="l2">Trufi 2 (Calacoto - Prado)</option>
+                <option value="l_m">Micro M (Achumani - Pérez)</option>
+            </select>
+        </section>
+
+        <section class="trip-info">
+            <div class="info-card">
+                <small>DESVÍO</small>
+                <p id="txt-desvio">0 m</p>
+            </div>
+            <div class="info-card">
+                <small>TIEMPO</small>
+                <p id="txt-timer">00:00</p>
+            </div>
+        </section>
+
+        <footer class="actions">
+            <button id="btn-main" class="btn-action start">
+                <span class="material-icons-round">play_arrow</span>
+                INICIAR CONTROL
+            </button>
+            <button id="btn-report" class="btn-action report hidden">
+                <span class="material-icons-round">report_problem</span>
+                REPORTAR TRAMEAJE
+            </button>
+        </footer>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</body>
+</html>
